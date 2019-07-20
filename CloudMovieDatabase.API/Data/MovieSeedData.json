@@ -1,27 +1,27 @@
 [
     {
       "Title": "Digial",
-      "Year": "1982-05-21",
+      "Year": 1982,
       "Genre": "Drama"
     },
     {
       "Title": "Valreda",
-      "Year": "2019-04-26",
+      "Year": 2019,
       "Genre": "Sport"
     },
     {
       "Title": "Medicroix",
-      "Year": "2017-11-04",
+      "Year": 2017,
       "Genre": "Comedy"
     },
     {
       "Title": "Insurity",
-      "Year": "1997-09-29",
+      "Year": 1997,
       "Genre": "Comedy"
     },
     {
       "Title": "Glukgluk",
-      "Year": "1987-07-16",
+      "Year": 1987,
       "Genre": "Fantasy"
     }
   ]

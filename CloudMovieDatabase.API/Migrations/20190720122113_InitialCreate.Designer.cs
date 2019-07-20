@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CloudMovieDatabase.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190718193504_InitialCreate")]
+    [Migration("20190720122113_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,7 +63,7 @@ namespace CloudMovieDatabase.API.Migrations
                     b.Property<string>("Title")
                         .IsRequired();
 
-                    b.Property<DateTime>("Year");
+                    b.Property<int>("Year");
 
                     b.HasKey("Id");
 
@@ -74,11 +74,13 @@ namespace CloudMovieDatabase.API.Migrations
                 {
                     b.HasOne("CloudMovieDatabase.API.Models.Actor", "Actor")
                         .WithMany("Filmography")
-                        .HasForeignKey("ActorId");
+                        .HasForeignKey("ActorId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("CloudMovieDatabase.API.Models.Movie", "Movie")
                         .WithMany("StarringActors")
-                        .HasForeignKey("MovieId");
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

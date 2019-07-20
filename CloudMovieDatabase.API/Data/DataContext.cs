@@ -9,6 +9,7 @@ namespace CloudMovieDatabase.API.Data
 
         public DbSet<Actor> Actors { get; set; }
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<ActorMovie> ActorMovie { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder) 
         {
@@ -25,12 +26,12 @@ namespace CloudMovieDatabase.API.Data
                 actorMovie.HasOne(am => am.Actor)
                     .WithMany(a => a.Filmography)
                     .HasForeignKey(am => am.ActorId)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
+                    .OnDelete(DeleteBehavior.Cascade);
 
                 actorMovie.HasOne(am => am.Movie)
                     .WithMany(m => m.StarringActors)
                     .HasForeignKey(am => am.MovieId)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
+                    .OnDelete(DeleteBehavior.Cascade);
             });
         }
     }

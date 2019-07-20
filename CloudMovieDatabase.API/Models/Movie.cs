@@ -8,7 +8,7 @@ namespace CloudMovieDatabase.API.Models
     {
         public enum GenreOfMovie
         {
-            Drama,
+            Drama = 1,
             Comedy,
             Thriller,
             Romance,
@@ -34,7 +34,7 @@ namespace CloudMovieDatabase.API.Models
 
         [Required]
         public string Title { get; set; }
-        public DateTime Year { get; set; }
+        public int Year { get; set; }
         public GenreOfMovie Genre { get; set; }
         public ICollection<ActorMovie> StarringActors { get; set; }
     }

@@ -30,7 +30,7 @@ namespace CloudMovieDatabase.API.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Title = table.Column<string>(nullable: false),
-                    Year = table.Column<DateTime>(nullable: false),
+                    Year = table.Column<int>(nullable: false),
                     Genre = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
@@ -53,13 +53,13 @@ namespace CloudMovieDatabase.API.Migrations
                         column: x => x.ActorId,
                         principalTable: "Actors",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ActorMovie_Movies_MovieId",
                         column: x => x.MovieId,
                         principalTable: "Movies",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
