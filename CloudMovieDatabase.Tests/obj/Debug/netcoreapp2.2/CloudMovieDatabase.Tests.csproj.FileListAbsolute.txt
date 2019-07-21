@@ -1,0 +1,17 @@
+c:\MAREK\Nauka\CloudMovieDatabase\CloudMovieDatabase.Tests\bin\Debug\netcoreapp2.2\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+c:\MAREK\Nauka\CloudMovieDatabase\CloudMovieDatabase.Tests\bin\Debug\netcoreapp2.2\xunit.runner.reporters.netcoreapp10.dll
+c:\MAREK\Nauka\CloudMovieDatabase\CloudMovieDatabase.Tests\bin\Debug\netcoreapp2.2\xunit.runner.utility.netcoreapp10.dll
+c:\MAREK\Nauka\CloudMovieDatabase\CloudMovieDatabase.Tests\bin\Debug\netcoreapp2.2\CloudMovieDatabase.Tests.deps.json
+c:\MAREK\Nauka\CloudMovieDatabase\CloudMovieDatabase.Tests\bin\Debug\netcoreapp2.2\CloudMovieDatabase.Tests.runtimeconfig.json
+c:\MAREK\Nauka\CloudMovieDatabase\CloudMovieDatabase.Tests\bin\Debug\netcoreapp2.2\CloudMovieDatabase.Tests.runtimeconfig.dev.json
+c:\MAREK\Nauka\CloudMovieDatabase\CloudMovieDatabase.Tests\bin\Debug\netcoreapp2.2\CloudMovieDatabase.Tests.dll
+c:\MAREK\Nauka\CloudMovieDatabase\CloudMovieDatabase.Tests\bin\Debug\netcoreapp2.2\CloudMovieDatabase.Tests.pdb
+c:\MAREK\Nauka\CloudMovieDatabase\CloudMovieDatabase.Tests\bin\Debug\netcoreapp2.2\CloudMovieDatabase.API.dll
+c:\MAREK\Nauka\CloudMovieDatabase\CloudMovieDatabase.Tests\bin\Debug\netcoreapp2.2\CloudMovieDatabase.API.pdb
+c:\MAREK\Nauka\CloudMovieDatabase\CloudMovieDatabase.Tests\obj\Debug\netcoreapp2.2\CloudMovieDatabase.Tests.csprojAssemblyReference.cache
+c:\MAREK\Nauka\CloudMovieDatabase\CloudMovieDatabase.Tests\obj\Debug\netcoreapp2.2\CloudMovieDatabase.Tests.csproj.CoreCompileInputs.cache
+c:\MAREK\Nauka\CloudMovieDatabase\CloudMovieDatabase.Tests\obj\Debug\netcoreapp2.2\CloudMovieDatabase.Tests.AssemblyInfoInputs.cache
+c:\MAREK\Nauka\CloudMovieDatabase\CloudMovieDatabase.Tests\obj\Debug\netcoreapp2.2\CloudMovieDatabase.Tests.AssemblyInfo.cs
+c:\MAREK\Nauka\CloudMovieDatabase\CloudMovieDatabase.Tests\obj\Debug\netcoreapp2.2\CloudMovieDatabase.Tests.csproj.CopyComplete
+c:\MAREK\Nauka\CloudMovieDatabase\CloudMovieDatabase.Tests\obj\Debug\netcoreapp2.2\CloudMovieDatabase.Tests.dll
+c:\MAREK\Nauka\CloudMovieDatabase\CloudMovieDatabase.Tests\obj\Debug\netcoreapp2.2\CloudMovieDatabase.Tests.pdb

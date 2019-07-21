@@ -1,6 +1,8 @@
 using System;
 using System.Threading.Tasks;
+using AutoMapper;
 using CloudMovieDatabase.API.Data;
+using CloudMovieDatabase.API.Dtos;
 using CloudMovieDatabase.API.Models;
 using CloudMovieDatabase.API.Validation;
 using Microsoft.AspNetCore.Mvc;
@@ -13,10 +15,12 @@ namespace CloudMovieDatabase.API.Controllers
     public class MoviesController : ControllerBase
     {
         private readonly ICloudRepository _repo;
+        private readonly IMapper _mapper;
 
-        public MoviesController(ICloudRepository repo)
+        public MoviesController(ICloudRepository repo, IMapper mapper)
         {
             _repo = repo;
+            _mapper = mapper;
         }
 
         // GET api/movies
@@ -37,20 +41,20 @@ namespace CloudMovieDatabase.API.Controllers
             return Ok(movie);
         }
 
-        [HttpGet("{id}/actors")]
-        public async Task<IActionResult> GetMovieActors(int id)
-        {
-            var movieActors =  await _repo.GetMovieActors(id);
-
-            return Ok(movieActors);
-        }
-
         [HttpGet("year/{year}")]
         public async Task<IActionResult> GetMoviesByYear(int year)
         {
             var getByYear = await _repo.GetMoviesByProductionYear(year);
 
             return Ok(getByYear);
+        }
+
+        [HttpGet("actor/{actorId}")]
+        public async Task<IActionResult> GetMoviesByActor(int actorId)
+        {
+            var getByActor = await _repo.GetMoviesBySingleActor(actorId);
+
+            return Ok(getByActor);
         }
 
         [HttpPost]
@@ -65,16 +69,30 @@ namespace CloudMovieDatabase.API.Controllers
             return BadRequest("Failed to add a movie");
         }
 
-        [HttpPut]
+        // [HttpPut]
+        // [MovieValidation]
+        // public async Task<IActionResult> UpdateMovie(Movie movie)
+        // {
+        //     _repo.Update(movie);
+
+        //     if (await _repo.SaveAll())
+        //         return CreatedAtRoute("GetMovie", new { id = movie.Id}, movie);
+            
+        //     throw new Exception($"Updating movie {movie.Title} failed on save");
+        // }
+
+        [HttpPut("{id}")]
         [MovieValidation]
-        public async Task<IActionResult> UpdateMovie(Movie movie)
+        public async Task<IActionResult> UpdateMovie(int id, MovieForUpdateDto movieForUpdateDto)
         {
-            _repo.Update(movie);
+            var movie = await _repo.GetMovie(id);
+
+            _mapper.Map(movieForUpdateDto, movie);
 
             if (await _repo.SaveAll())
                 return CreatedAtRoute("GetMovie", new { id = movie.Id}, movie);
             
-            throw new Exception($"Updating movie {movie.Title} failed on save");
+           throw new Exception($"Updating movie {movie.Title} failed on save");
         }
 
         [HttpPut("{id}/movie-actor/{actorId}")]
@@ -88,7 +106,7 @@ namespace CloudMovieDatabase.API.Controllers
             if (actorMovie != null)
                 return BadRequest("This actor is already in that movie");
 
-            if (actor == null && movie == null)
+            if (actor == null || movie == null)
                 return NotFound();
 
             if (movie.Year < actor.BirthDay.Year)

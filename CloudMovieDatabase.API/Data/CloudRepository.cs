@@ -26,10 +26,10 @@ namespace CloudMovieDatabase.API.Data
             _context.Remove(entity);
         }
 
-        public void Update<T>(T entity) where T : class
-        {
-            _context.Update(entity);
-        }
+        // public void Update<T>(T entity) where T : class
+        // {
+        //     _context.Update(entity);
+        // }
 
         public async Task<bool> SaveAll()
         {
@@ -76,7 +76,7 @@ namespace CloudMovieDatabase.API.Data
             return movie;
         }
 
-        public async Task<IEnumerable<Movie>> GetMoviesByActor(int actorId)
+        public async Task<IEnumerable<Movie>> GetMoviesBySingleActor(int actorId)
         {
             var moviesByActor = await _context.ActorMovie.Where(ma => ma.ActorId == actorId)
                     .Select(a => a.Movie).ToListAsync();

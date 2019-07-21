@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CloudMovieDatabase.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190720122113_InitialCreate")]
+    [Migration("20190721201839_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -10,7 +10,7 @@ namespace CloudMovieDatabase.API.Data
 
          void Delete<T>(T entity) where T: class;
 
-         void Update<T>(T entity) where T: class;
+        //  void Update<T>(T entity) where T: class;
 
          Task<bool> SaveAll();
 
@@ -27,7 +27,7 @@ namespace CloudMovieDatabase.API.Data
 
          Task<Movie> GetMovie(int id);
 
-         Task<IEnumerable<Movie>> GetMoviesByActor(int actorId);
+         Task<IEnumerable<Movie>> GetMoviesBySingleActor(int actorId);
 
          Task<IEnumerable<Movie>> GetMoviesByProductionYear(int year);
 

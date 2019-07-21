@@ -39,9 +39,17 @@ namespace CloudMovieDatabase.API.Controllers
         [HttpGet("{id}/movies")]
         public async Task<IActionResult> GetActorMovies(int id)
         {
-            var actorMovies = await _repo.GetMoviesByActor(id);
+            var actorMovies = await _repo.GetMoviesBySingleActor(id);
 
             return Ok(actorMovies);
+        }
+
+        [HttpGet("movie/{movieId}")]
+        public async Task<IActionResult> GetActorsFromMovie(int movieId)
+        {
+            var movieActors =  await _repo.GetMovieActors(movieId);
+
+            return Ok(movieActors);
         }
 
         [HttpPost]
@@ -55,36 +63,5 @@ namespace CloudMovieDatabase.API.Controllers
             return BadRequest("Failed to add actor");
 
         } 
-
-        [HttpPut("{id}/actor-movie/{movieId}")]
-        public async Task<IActionResult> MovieToActor(int id, int movieId)
-        {
-            var actor = await _repo.GetActor(id);
-            var movie = await _repo.GetMovie(movieId);
-
-            var actorMovie = await _repo.GetActorMovieRelation(id, movieId);
-
-            if (actorMovie != null)
-                return BadRequest("This actor is already in that movie");
-
-            if (await _repo.GetMovie(movieId) == null)
-                return NotFound();
-
-            if (movie.Year < actor.BirthDay.Year)
-                return BadRequest("The actor was born later than the movie was made");
-
-             actorMovie = new ActorMovie
-             {
-                 ActorId = id,
-                 MovieId = movieId
-             };
-
-             _repo.Add<ActorMovie>(actorMovie);
-
-             if (await _repo.SaveAll())
-                return Ok();
-            
-            return BadRequest("Failed to add actor to movie");
-        }
     }
 }
